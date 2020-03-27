@@ -4,9 +4,9 @@ let course = ["Node JS", "Git", "HTML & CSS", "Javascript"]
 console.log(`My name is ${name} and my courses are ${course}`)
 
 let oddNumbers = []
-let evenNumbers
+let evenNumbers = []
 
-for (let i = 0; i <= 200; i++) {
+for (let i = 1; i <= 200; i++) {
     if(i % 2 === 0) {
         evenNumbers.push(i)
     }
