@@ -17,8 +17,10 @@ const server = http.createServer((req, res) => {
             </head>
             <body>
                 <form method="POST" action="/message">
-                    <input type="text" name='message'> <br>
-                    <input type="submit">
+                <label>Please enter a message below: <br>
+                  <input type="text" name='message'> <br>
+                  <input type="submit">
+                </label>
                 </form>
             </body>
             </html>
