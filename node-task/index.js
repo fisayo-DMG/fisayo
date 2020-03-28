@@ -46,6 +46,7 @@ const server = http.createServer((req, res) => {
         res.end("Message sent!");
       });
     } else {
+      res.statusCode = 404
       res.end("Error");
     }
   }
