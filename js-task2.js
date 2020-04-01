@@ -28,10 +28,11 @@ const interestCalculator = arg => {
     const { rate, interest } = calcRateAndInterest(obj);
     interestData.push({ ...obj, rate, interest });
   }
-  
-  console.log('New data: ', interestData)
+
+  //   console.log('New data: ', interestData)
+  console.log(interestData);
   return interestData;
 };
 
-console.log("Original data: ", data);
+// console.log("Original data: ", data);
 interestCalculator(data);
