@@ -2,37 +2,36 @@ const data = [
   { principal: 2500, time: 1.8 },
   { principal: 1000, time: 5 },
   { principal: 3000, time: 1 },
-  { principal: 2000, time: 3 }
+  { principal: 2000, time: 3 },
 ];
 
-const calcRateAndInterest = ({ principal, time }) => {
-  let rate = 1;
-  let interest = null;
+const interestCalculator = (data) => {
+  const interestData = data.map((item) => {
+    const obj = { ...item };
+    const { principal, time } = obj;
 
-  if (principal >= 2500 && time > 1 && time < 3) {
-    rate = 3;
-  } else if (principal >= 2500 && time >= 3) {
-    rate = 4;
-  } else if (principal < 2500 || time <= 1) {
-    rate = 2;
-  }
+    if (principal >= 2500 && time > 1 && time < 3) {
+      obj.rate = 3;
+      obj.interest = (principal * obj.rate * time) / 100;
+    } else if (principal >= 2500 && time >= 3) {
+      obj.rate = 4;
+      obj.interest = (principal * obj.rate * time) / 100;
+    } else if (principal < 2500 || time <= 1) {
+      obj.rate = 2;
+      obj.interest = (principal * obj.rate * time) / 100;
+    } else {
+      obj.rate = 1;
+      obj.interest = (principal * obj.rate * time) / 100;
+    }
 
-  interest = (principal * rate * time) / 100;
-  return { rate, interest };
-};
+    return obj;
+  });
 
-const interestCalculator = arg => {
-  const interestData = [];
-
-  for (const obj of arg) {
-    const { rate, interest } = calcRateAndInterest(obj);
-    interestData.push({ ...obj, rate, interest });
-  }
-
-  //   console.log('New data: ', interestData)
   console.log(interestData);
   return interestData;
 };
 
-// console.log("Original data: ", data);
 interestCalculator(data);
+
+// Console original data to be sure it was not mutated.
+console.log("Original data: ", data);
